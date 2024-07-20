@@ -2,6 +2,8 @@ $(document).ready(function() {
 	var table = $('#example').DataTable({
 		dom: '<"top"i>rt<"bottom"lp><"clear">',
 		pagingType: 'simple_numbers',
+		pageLength: 5, 
+        lengthMenu: [5, 10, 25, 50, 100],
 		language: {
 			paginate: {
 				first: "<<",
