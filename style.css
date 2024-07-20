@@ -1,0 +1,25 @@
+div.dataTables_wrapper div.dataTables_filter {
+	display: none; /* Hide default search */
+}
+
+ /* Custom pagination styling */
+ .dataTables_paginate {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dataTables_paginate .paginate_button {
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.dataTables_paginate .paginate_button.current {
+	background-color: #007bff;
+	color: white;
+	border: 1px solid #007bff;
+}
+.dataTables_paginate .paginate_button:hover {
+	background-color: #ddd;
+}
