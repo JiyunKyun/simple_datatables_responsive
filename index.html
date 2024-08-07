@@ -1,66 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Datatables Responsive</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   <div class="col-12 p-5">
-        <div class="col-12">
-            <h4>Simple Datatables Responsive (not include table)</h4>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="col-12 rounded shadow-sm bg-white p-3 border mt-3">
+      <div class="col-12 mt-3 d-flex flex-wrap justify-content-between">
+        <div class="col-12 col-md-3 mb-3" id="filter-cuti-pengajuan">
+          <select
+            name="filter_status_cuti"
+            id="filter-status-cuti"
+            class="form-select"
+          >
+            <option value="">Default</option>
+            <option value="Pending">Pending</option>
+            <option value="Ditolak">Ditolak</option>
+            <option value="Diterima">Diterima</option>
+          </select>
         </div>
-        <div class="col-12">
-            <a href="#">
-                <button class="btn btn-primary col-12 mb-2">Button</button>
-            </a>
+        <div class="col-12 col-md-3 mb-3">
+          <div id="rows-cuti-pengajuan"></div>
         </div>
-        <div class="col-12 d-flex flex-wrap justify-content-between align-items-center pt-2">
-            <div id="custom-rows" class="col-12 col-sm-auto mb-2"></div>
-            <div id="search-custom" class="col-12 col-sm-auto mb-2">
-                <input type="search" class="form-control mb-2" id="search-custom" placeholder="Cari">
-            </div>
+        <div class="col-12 col-md-3 mb-3" id="search-cuti-pengajuan">
+          <input
+            type="search"
+            id="search-cuti-pengajuan"
+            class="form-control"
+            placeholder="cari"
+          />
         </div>
+      </div>
+
+      <div class="col-12">
         <div class="table-responsive">
-            <table id="example" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama</th>
-                        <th>Keterangan Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead> 
-                <tbody> 
-                    <tr>
-                        <td>1</td>
-                        <td>Yuniko</td>
-                        <td>Belum Menikah</td>
-                        <td>Button Here</td>
-                    </tr>
-                </tbody>
-            </table> 
+          <table id="table-cuti-pengajuan" class="table" style="width: 100%">
+            <thead>
+              <tr>
+                <th>ID Pengajuan</th>
+                <th>Tanggal Pengajuan</th>
+                <th>Tipe Cuti</th>
+                <th>Tanggal Cuti</th>
+                <th>Nama Karyawan</th>
+                <th>ID Karyawan</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CT-91932</td>
+                <td>23 Juni 2024</td>
+                <td>Izin Terkait Pendidikan</td>
+                <td>23 Juni 2024 ....</td>
+                <td>Yuniko Satria</td>
+                <td>MH-0239</td>
+                <td>Pending</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        
-        <div class="col-12 d-flex flex-wrap justify-content-between pt-3">
-            <div id="custom-info" class="mb-2"></div>
-            <div id="custom-pagination" class="d-flex justify-content-end"></div>
-        </div>
-   </div>
+      </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+      <div class="col-12 d-flex flex-wrap justify-content-between pt-3">
+        <div id="info-cuti-pengajuan" class="mb-2"></div>
+        <div
+          id="pagination-cuti-pengajuan"
+          class="d-flex justify-content-end"
+        ></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
